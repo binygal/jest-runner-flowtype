@@ -1,0 +1,5 @@
+/node_modules
+/__tests__
+/testFiles
+/__mocks__
+/personal_log.txt
