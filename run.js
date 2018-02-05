@@ -4,7 +4,7 @@ const { pass, fail } = require('create-jest-runner');
 module.exports = ({ testPath }) =>
   new Promise((resolve) => {
     const start = new Date();
-    exec(`flow check-contents < ${testPath}`, (err, stdout) => {
+    exec(`flow ${testPath}`, (err, stdout) => {
       if (err) {
         resolve(fail({
           start,
