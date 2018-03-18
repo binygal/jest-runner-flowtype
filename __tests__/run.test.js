@@ -1,18 +1,35 @@
 const path = require('path');
-const runner = require('../run');
+const FlowtypeRunner = require('../src/FlowtypeRunner');
 
-const exec = command => console.log(command);
-
-// child_process.exec = jest.fn(exec);
-jest.mock('child_process');
+const emptyCallback = () => {};
 
 describe('jest-runner-flow tests', () => {
   test('running on valid file', () => {
-    const result = runner({ testPath: path.join(__dirname, '../testFiles/valid.js') });
-    return result.then(data => expect(data.testResults[0].status).toBe('passed'));
+    let status = '';
+    const resultHandler = (test, testResults) => {
+      [{ status }] = testResults.testResults;
+    };
+    const result = new FlowtypeRunner().runTests(
+      [{ path: path.join(__dirname, '../testFiles/valid.js') }],
+      emptyCallback,
+      emptyCallback,
+      resultHandler,
+      emptyCallback,
+    );
+    return result.then(() => expect(status).toBe('passed'));
   });
   test('running on invalid file', () => {
-    const result = runner({ testPath: path.join(__dirname, '../testFiles/invalid.js') });
-    return result.then(data => expect(data.testResults[0].status).toBe('failed'));
+    let status = '';
+    const resultHandler = (test, testResults) => {
+      [{ status }] = testResults.testResults;
+    };
+    const result = new FlowtypeRunner().runTests(
+      [{ path: path.join(__dirname, '../testFiles/invalid.js') }],
+      emptyCallback,
+      emptyCallback,
+      resultHandler,
+      emptyCallback,
+    );
+    return result.then(() => expect(status).toBe('failed'));
   });
 });
