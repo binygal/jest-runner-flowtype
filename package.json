@@ -1,6 +1,6 @@
 {
   "name": "jest-runner-flowtype",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Jest runner to run flowtype checks. Fast and easy usage of jest as a platform",
   "main": "index.js",
   "readme": "./README.md",
