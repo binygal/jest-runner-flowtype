@@ -1,8 +1,9 @@
 {
   "name": "jest-runner-flowtype",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Jest runner to run flowtype checks. Fast and easy usage of jest as a platform",
   "main": "index.js",
+  "readme": "./README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/binygal/jest-runner-flowtype.git"

@@ -1,3 +1,3 @@
-const { createJestRunner } = require('create-jest-runner');
+const FlowtypeRunner = require('./src/FlowtypeRunner');
 
-module.exports = createJestRunner(require.resolve('./run.js'));
+module.exports = FlowtypeRunner;

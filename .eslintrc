@@ -2,5 +2,9 @@
   "extends": "airbnb-base",
   "env": {
     "jest": true
+  },
+  "rules": {
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off"
   }
 }
