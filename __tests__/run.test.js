@@ -3,13 +3,17 @@ const FlowtypeRunner = require('../src/FlowtypeRunner');
 
 const emptyCallback = () => {};
 
+const globalConfig = {
+  rootDir: process.cwd(),
+};
+
 describe('jest-runner-flow tests', () => {
   test('running on valid file', () => {
     let status = '';
     const resultHandler = (test, testResults) => {
       [{ status }] = testResults.testResults;
     };
-    const result = new FlowtypeRunner().runTests(
+    const result = new FlowtypeRunner(globalConfig).runTests(
       [{ path: path.join(__dirname, '../testFiles/valid.js') }],
       emptyCallback,
       emptyCallback,
@@ -23,7 +27,7 @@ describe('jest-runner-flow tests', () => {
     const resultHandler = (test, testResults) => {
       [{ status }] = testResults.testResults;
     };
-    const result = new FlowtypeRunner().runTests(
+    const result = new FlowtypeRunner(globalConfig).runTests(
       [{ path: path.join(__dirname, '../testFiles/invalid.js') }],
       emptyCallback,
       emptyCallback,

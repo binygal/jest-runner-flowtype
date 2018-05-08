@@ -10,13 +10,13 @@ class FlowtypeRunner {
   runTests(tests, watcher, onStart, onResult, onFailure, options) {
     const start = +new Date();
     return new Promise((resolve) => {
-      exec('flow', { stdio: 'ignore', cwd: process.cwd() }, (err, stdout) => {
+      exec('flow', { stdio: 'ignore', cwd: this.globalConfig.rootDir }, (err, stdout) => {
         const errors = stdout.split('Error');
         const errorsPerFile = errors.reduce((previous, current) => {
           const firstErrorLine = current.split('\n')[0];
           const fileNameMatcher = firstErrorLine.match(/(\.{1,2}|\/)?([A-z]|\/|-)*\.js(x?)/);
           if (fileNameMatcher) {
-            const fileName = path.join(process.cwd(), fileNameMatcher[0]);
+            const fileName = path.join(this.globalConfig.rootDir, fileNameMatcher[0]);
             const errorMessage = current.substring(current.indexOf('\n') + 1);
             if (!previous[fileName]) {
               previous[fileName] = [];
