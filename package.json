@@ -1,6 +1,6 @@
 {
   "name": "jest-runner-flowtype",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Jest runner to run flowtype checks. Fast and easy usage of jest as a platform",
   "main": "index.js",
   "readme": "./README.md",
@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "create-jest-runner": "^0.1.1",
-    "flow-bin": "^0.63.1"
+    "flow-bin": "^0.63.1",
+    "strip-ansi": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^4.15.0",
