@@ -11,7 +11,7 @@ class FlowtypeRunner {
     const start = +new Date();
     return new Promise((resolve) => {
       exec('flow check', {
-        stdio: 'pipe',
+        stdio: 'ignore',
         cwd: process.cwd(),
         env: process.env,
         shell: true,
