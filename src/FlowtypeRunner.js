@@ -10,7 +10,7 @@ class FlowtypeRunner {
   runTests(tests, watcher, onStart, onResult) {
     const start = +new Date();
     return new Promise((resolve) => {
-      exec('flow check', {
+      exec('flow', {
         stdio: 'ignore',
         cwd: process.cwd(),
         env: process.env,
