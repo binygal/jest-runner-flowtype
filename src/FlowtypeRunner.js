@@ -10,7 +10,13 @@ class FlowtypeRunner {
   runTests(tests, watcher, onStart, onResult) {
     const start = +new Date();
     return new Promise((resolve) => {
-      exec('flow', { stdio: 'ignore', cwd: process.cwd() }, (err, stdout) => {
+      exec('flow', {
+        stdio: 'ignore',
+        cwd: process.cwd(),
+        env: process.env,
+        shell: true,
+        windowsHide: true,
+      }, (err, stdout) => {
         const errors = stdout.split('Error');
         const errorsPerFile = errors.reduce((previous, current) => {
           const firstErrorLine = current.split('\n')[0];
