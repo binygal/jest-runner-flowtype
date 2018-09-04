@@ -17,7 +17,6 @@ class FlowtypeRunner {
           stdio: 'ignore',
           cwd: this.globalConfig.rootDir,
           env: process.env,
-          shell: true,
           windowsHide: true,
         },
         (err, stdout) => {
