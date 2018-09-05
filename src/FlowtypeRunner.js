@@ -13,7 +13,12 @@ class FlowtypeRunner {
     return new Promise((resolve) => {
       exec(
         'flow --color=always',
-        { stdio: 'ignore', cwd: this.globalConfig.rootDir },
+        {
+          stdio: 'ignore',
+          cwd: this.globalConfig.rootDir,
+          env: process.env,
+          windowsHide: true,
+        },
         (err, stdout) => {
           const errors = stdout.split('Error');
           const errorsPerFile = errors.reduce((previous, current) => {
