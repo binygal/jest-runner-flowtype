@@ -65,3 +65,7 @@ Now run it with
 ```bash
 yarn flow-runner
 ```
+
+The following screenshot is a sample output for failed run.
+
+![failed output](./assets/sample-failed.png)
