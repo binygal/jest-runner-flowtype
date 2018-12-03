@@ -1,3 +1,7 @@
+# NOTICE!
+
+This project is not maintained anymore. It won't run with the latest Flow version and I don't have the time to fix it. Drop me a message if you want to maintain it or fix it to use the latest Flowtype version.
+
 # Jest-Runner-Flowtype
 
 An experimental Flowtype runner for Jest
